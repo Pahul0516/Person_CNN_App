@@ -9,13 +9,13 @@ EXCHANGE = "photo_exchange"
 SERVICE_QUEUE = "person_service_queue"
 
 # 1. SETUP THE MODEL (Done once at startup)
-MODEL_PATH = 'notebooks/ResNet50_lfw50/Checkpoints/PersonCNN_ResNet50_lfw50_FT_epoch_206_val_acc_0.8500.keras'
-JSON_PATH = 'notebooks/classes.json'
+MODEL_PATH = '../notebooks/ResNet50_lfw50/Checkpoints/PersonCNN_ResNet50_lfw50_FT_epoch_206_val_acc_0.8500.keras'
+JSON_PATH = '../notebooks/classes.json'
 
 # Initialize the loader and recognizer
 # We set a default zoom here, but we can override it later if needed
 loader = PersonCNNModel(MODEL_PATH, JSON_PATH)
-person_detector = PersonRecognizer(loader, tflite_path='notebooks/face_detector.tflite', default_zoom=0.3)
+person_detector = PersonRecognizer(loader, tflite_path='../notebooks/face_detector.tflite', default_zoom=0.3)
 
 def callback(ch, method, properties, body):
     try:
